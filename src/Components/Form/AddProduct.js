@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const AddProduct = ()
- => {
+const AddProduct = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
