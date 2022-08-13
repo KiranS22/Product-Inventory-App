@@ -17,9 +17,11 @@ const AddProduct = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const body = { test: "Hello" };
+    console.log("form has submitted");
+    const body = { title: title, category: category, price: price };
     try {
-      await axios.post("http://localhost:4000/products/add", body);
+      const resp = await axios.post("http://localhost:4000/products/add", body);
+      console.log(resp.data);
     } catch (error) {
       console.log(error);
     }
@@ -27,7 +29,7 @@ const AddProduct = () => {
 
   return (
     <>
-      <form method="POST" onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <label for="title">Title</label>
         <input
           type="text"
@@ -51,6 +53,7 @@ const AddProduct = () => {
           onChange={(e) => handlePrice(e)}
           id="price"
         />
+        <button type="submit"> Submit</button>
       </form>
     </>
   );
